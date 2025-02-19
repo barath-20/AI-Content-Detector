@@ -1,0 +1,1 @@
+print("Ajey is k,throgi")
