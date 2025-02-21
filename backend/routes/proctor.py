@@ -1,8 +1,8 @@
-from fastapi import APIRouter
-from services.face_gaze import detect_face_gaze
+from fastapi import APIRouter, UploadFile
+from services.face_gaze import track_face_gaze
 
-router = APIRouter()
+router = APIRouter(prefix="/proctor", tags=["Face Tracking"])
 
-@router.get("/monitor")
-async def monitor_proctoring():
-    return detect_face_gaze()
+@router.post("/face-gaze")
+def face_gaze_detection(file: UploadFile):
+    return track_face_gaze(file.file.read())

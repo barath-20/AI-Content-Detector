@@ -1,9 +1,8 @@
-from fastapi import APIRouter
-from fastapi import APIRouter
-from services.audio_ai import detect_speech
+from fastapi import APIRouter, UploadFile
+from services.audio_ai import analyze_audio
 
-router = APIRouter()
+router = APIRouter(prefix="/audio", tags=["Voice Analysis"])
 
-@router.get("/analyze")
-async def analyze_audio():
-    return detect_speech()
+@router.post("/analyze-audio")
+def analyze_speech(file: UploadFile):
+    return analyze_audio(file.file.read())
