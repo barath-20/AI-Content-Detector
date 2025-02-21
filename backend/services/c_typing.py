@@ -1,4 +1,4 @@
-def analyze_typing_pattern(data: dict) -> str:
+def analyze_typing_behavior(data: dict) -> str:
     """
     Analyze typing patterns (speed, delays) to detect anomalies.
     """

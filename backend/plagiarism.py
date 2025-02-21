@@ -1,1 +1,0 @@
-print("Plagiarism.py")

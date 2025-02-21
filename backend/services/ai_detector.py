@@ -1,7 +1,7 @@
 import requests
 import os
 
-def detect_ai_generated_content(text: str) -> bool:
+def detect_ai_content(text: str) -> bool:
     """
     Detect if the given text is AI-generated using GPTZero API.
     """
