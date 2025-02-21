@@ -20,4 +20,4 @@ def detect_faces(image_path):
     faces = []
     for detection in detections:
         x, y, w, h = detection['region'].values()
-        f
+        
