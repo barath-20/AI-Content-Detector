@@ -1,6 +1,6 @@
 
 from fastapi import FastAPI
-from routes import detection, behavior, proctor, audio
+from routes import detection, behavior
 import uvicorn
 
 app = FastAPI(title="AI Cheating Detection System")
@@ -8,8 +8,7 @@ app = FastAPI(title="AI Cheating Detection System")
 # Include API routes
 app.include_router(detection.router, prefix="/detection", tags=["AI Content Detection"])
 app.include_router(behavior.router, prefix="/behavior", tags=["Typing Behavior Analysis"])
-app.include_router(proctor.router, prefix="/proctor", tags=["Proctoring & Face Detection"])
-app.include_router(audio.router, prefix="/audio", tags=["Voice Analysis"])
+
 
 @app.get("/")
 async def root():
