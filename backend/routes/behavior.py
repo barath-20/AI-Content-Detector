@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from services.typing import analyze_typing_behavior
+from services.c_typing import analyze_typing_behavior
 
 router = APIRouter()
 
