@@ -1,10 +1,10 @@
 {
-<<<<<<< Akash
+
   "name": "frontend",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {}
-=======
+
   "name": "detector",
   "version": "0.0.0",
   "lockfileVersion": 3,
@@ -4821,6 +4821,6 @@
       }
     }
   }
->>>>>>> main
+
 }
 
