@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { checkAIContent } from "../api";
 
-const AIContentChecker = () => {
-  const [text, setText] = useState("");
+const AIContentChecker = ({ text }) => {
   const [result, setResult] = useState(null);
 
   const handleCheck = async () => {
@@ -16,7 +15,7 @@ const AIContentChecker = () => {
       <textarea
         className="w-full p-2 border rounded"
         rows="4"
-        onChange={(e) => setText(e.target.value)}
+        readOnly
         value={text}
       />
       <button onClick={handleCheck} className="mt-2 px-4 py-2 bg-green-500 text-white rounded">
@@ -28,3 +27,4 @@ const AIContentChecker = () => {
 };
 
 export default AIContentChecker;
+    

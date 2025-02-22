@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { sendTypingData } from "../api";
 
-const TypingMonitor = () => {
-  const [text, setText] = useState("");
+const TypingMonitor = ({ text }) => {
   const [typingSpeed, setTypingSpeed] = useState(0);
   const [lastKeyPress, setLastKeyPress] = useState(null);
 
-  const handleTyping = (e) => {
-    setText(e.target.value);
-    const now = Date.now();
+  useEffect(() => {
+    if (!text) return;
 
+    const now = Date.now();
     if (lastKeyPress) {
       const speed = now - lastKeyPress;
       setTypingSpeed(speed);
-      sendTypingData({ speed, text: e.target.value });
+      sendTypingData({ speed, text });
     }
     setLastKeyPress(now);
-  };
+  }, [text]); // Runs whenever `text` changes
 
   return (
-    <div className="p-4 border rounded-lg">
+    <div className="p-4 border rounded-lg mt-2">
       <h2 className="text-xl font-semibold mb-2">Typing Monitor</h2>
-      <textarea
-        className="w-full p-2 border rounded"
-        rows="4"
-        onChange={handleTyping}
-        value={text}
-      />
       <p className="mt-2 text-sm">Typing Speed: {typingSpeed} ms per key</p>
     </div>
   );
