@@ -51,13 +51,14 @@ const Test = () => {
       <TypingMonitor text={answers.question1} />
 
       <p className="mb-2">2. What is virtualization?</p>
-      <input
-        type="text"
-        name="question2"
-        className="w-full p-2 border rounded mb-2"
-        value={answers.question2}
-        onChange={handleChange}
-      />
+      <textarea
+  name="question2"
+  placeholder="Primary"
+  className="textarea textarea-primary"
+  value={answers.question2}
+  onChange={handleChange}
+></textarea>
+
       <TypingMonitor text={answers.question2} />
       <p className="mb-2">2. What is Virtual Manger?</p>
       <input
