@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TypingMonitor from "./TypingMonitor";
 import { checkAIContent } from "../api"; // Import the AI content check API
 
+
 const Test = () => {
   const [answers, setAnswers] = useState({
     question1: "",
@@ -44,7 +45,7 @@ const Test = () => {
       <input
         type="text"
         name="question1"
-        className="w-full p-2 border rounded mb-2"
+        className="input input-neutral"
         value={answers.question1}
         onChange={handleChange}
       />
@@ -64,7 +65,7 @@ const Test = () => {
       <input
         type="text"
         name="question2"
-        className="w-full p-2 border rounded mb-2"
+        className="input input-primary"
         value={answers.question3}
         onChange={handleChange}
       />
