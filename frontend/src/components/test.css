@@ -1,0 +1,12 @@
+.input {
+    width: 100%; /* Makes the input box as wide as possible */
+    max-width: 1600px; /* Limits the width to prevent it from being too wide */
+    height: 50px; /* Increased height for better typing experience */
+    padding: 12px;
+    margin: 10px auto; /* Centers the input and adds spacing */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    
+}
