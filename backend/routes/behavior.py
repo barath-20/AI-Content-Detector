@@ -1,16 +1,9 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
-from services.c_typing import analyze_typing_behavior
+from services.plagiarism import check_plagiarism
 
-router = APIRouter()
+router = APIRouter(prefix="/behavior", tags=["Plagiarism Detection"])
 
-class TypingData(BaseModel):
-    user_id: str
-    typing_speed: float
-    hesitation_time: float
-    copy_paste_count: int
-
-@router.post("/analyze")
-async def analyze_typing(data: TypingData):
-    result = analyze_typing_behavior(data.typing_speed, data.hesitation_time, data.copy_paste_count)
-    return {"user_id": data.user_id, "flagged": result}
+@router.post("/check-plagiarism")
+def plagiarism_check(text1: str, text2: str):
+    similarity = check_plagiarism(text1, text2)
+    return {"similarity_score": similarity}

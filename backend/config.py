@@ -1,3 +1,6 @@
 import os
+from dotenv import load_dotenv
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/ai_cheating_detector")
+load_dotenv()  # Load environment variables from .env file
+
+HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
