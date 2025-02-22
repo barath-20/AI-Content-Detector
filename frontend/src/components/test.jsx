@@ -17,15 +17,25 @@ const Test = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Combine all answers into a single text string
     const userAnswers = Object.values(answers).join(" ");
-
+  
     try {
-      const response = await checkAIContent(userAnswers);
-
-      // Show alert box based on AI detection result
-      if (response.isAI) {
+      // Send user response to FastAPI backend
+      const response = await fetch("http://127.0.0.1:8000/detection/detect-ai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: userAnswers }),
+      });
+  
+      const data = await response.json();
+      console.log(data);
+      
+      // Check the backend response
+      if (data.is_ai_generated) {
         alert("⚠️ AI-generated content detected! Please provide original answers.");
       } else {
         alert("✅ Submission successful! No AI-generated content detected.");
@@ -35,6 +45,7 @@ const Test = () => {
       alert("❌ Error checking AI content. Please try again.");
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="p-6 border rounded-lg shadow-md">
