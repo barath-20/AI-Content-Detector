@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import TypingMonitor from "./TypingMonitor";
 import { checkAIContent } from "../api"; // Import the AI content check API
-
+import WebcamProctor from "./WebcamProctor";
+import "./test.css";
 const Test = () => {
   const [answers, setAnswers] = useState({
     question1: "",
@@ -17,10 +18,10 @@ const Test = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Combine all answers into a single text string
     const userAnswers = Object.values(answers).join(" ");
-  
+
     try {
       // Send user response to FastAPI backend
       const response = await fetch("http://127.0.0.1:8000/detection/detect-ai", {
@@ -45,63 +46,67 @@ const Test = () => {
       alert("❌ Error checking AI content. Please try again.");
     }
   };
-  
-
   return (
+    <div>
+      <center><h2 className="text-2xl font-bold mb-4">Welcome to the Test Portal</h2></center>
+      
+      <WebcamProctor />
     <form onSubmit={handleSubmit} className="p-6 border rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Welcome to the Test Portal</h2>
 
       <p className="mb-2">1. What is an OS?</p>
       <input
         type="text"
         name="question1"
-        className="w-full p-2 border rounded mb-2"
+        className="input input-primary"
         value={answers.question1}
         onChange={handleChange}
       />
-      <TypingMonitor text={answers.question1} />
+      <TypingMonitor text={answers.question1} /><br></br>
 
       <p className="mb-2">2. What is virtualization?</p>
       <input
-        type="text"
-        name="question2"
-        className="w-full p-2 border rounded mb-2"
-        value={answers.question2}
-        onChange={handleChange}
-      />
-      <TypingMonitor text={answers.question2} />
-      <p className="mb-2">2. What is Virtual Manger?</p>
+      type="text"
+  name="question2"
+  placeholder="Primary"
+  className="input input-primary"
+  value={answers.question2}
+  onChange={handleChange}
+></input>
+
+      <TypingMonitor text={answers.question2} /><br></br>
+      <p className="mb-2">3. What is Virtual Manger?</p>
       <input
         type="text"
-        name="question2"
-        className="w-full p-2 border rounded mb-2"
+        name="question3"
+        className="input input-primary"
         value={answers.question3}
         onChange={handleChange}
       />
-      <TypingMonitor text={answers.question3} />
-      <p className="mb-2">2. What are the uses of OS?</p>
+      <TypingMonitor text={answers.question3} /><br></br>
+      <p className="mb-2">4. What are the uses of OS?</p>
       <input
         type="text"
-        name="question2"
-        className="w-full p-2 border rounded mb-2"
+        name="question4"
+        className="input input-primary"
         value={answers.question4}
         onChange={handleChange}
       />
-      <TypingMonitor text={answers.question4} />
-      <p className="mb-2">2. What is Process?</p>
+      <TypingMonitor text={answers.question4} /><br></br>
+      <p className="mb-2">5. What is Process?</p>
       <input
         type="text"
-        name="question2"
-        className="w-full p-2 border rounded mb-2"
+        name="question5"
+        className="input input-primary"
         value={answers.question5}
         onChange={handleChange}
       />
-      <TypingMonitor text={answers.question5} />
+      <TypingMonitor text={answers.question5} /><br></br>
 
-      <button type="submit" className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+      <center><button type="submit" className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
         Submit
-      </button>
+      </button></center>
     </form>
+    </div>
   );
 };
 

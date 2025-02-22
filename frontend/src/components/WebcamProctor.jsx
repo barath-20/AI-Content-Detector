@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Webcam from "react-webcam";
-
+import "./webcam.css";
 const WebcamProctor = () => {
   const webcamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
@@ -35,7 +35,7 @@ const WebcamProctor = () => {
   };
 
   return (
-    <div className="p-4 border border-gray-500 rounded-lg bg-gray-800 text-white shadow-lg">
+    <div className="p-4 border border-gray-500 rounded-lg bg-gray-800 text-white shadow-lg webcam-container ">
       <h2 className="text-xl font-semibold mb-2">Proctoring</h2>
 
       {/* Webcam with Reduced Size */}
