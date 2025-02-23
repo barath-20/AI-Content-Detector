@@ -1,0 +1,19 @@
+.typing-monitor-container {
+    width: 30%;  /* Reduce width */
+    max-width: 300px;  /* Prevent it from getting too wide */
+    margin: 0px ; /* Center it */
+    padding: 5px;
+   
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+    
+    
+
+}
+
+.typing-status {
+    font-size: 8px;
+    font-weight: bold;
+    color: #333;
+}
