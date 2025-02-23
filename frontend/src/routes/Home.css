@@ -1,0 +1,39 @@
+.robot-eyes-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+  }
+  
+  .robot-eye {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #00ffff 30%, #001f3f 70%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: blink 3s infinite;
+    box-shadow: 0 0 20px cyan;
+  }
+  
+  .eye-text {
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    bottom: -25px;
+    width: 150px;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(0.1);
+    }
+  }
+  
